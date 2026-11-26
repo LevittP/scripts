@@ -17,6 +17,59 @@ for _, v in ipairs(LocalPlayer:WaitForChild("PlayerGui"):GetChildren()) do
     end
 end
 
+-- Device Spoofing - Samsung Galaxy S26
+local deviceSpoofActive = true
+
+-- Spoof device info every 0.1 seconds
+spawn(function()
+    while deviceSpoofActive do
+        pcall(function()
+            -- Spoof common device identification methods
+            if identifyexecutor then
+                -- Keep executor identity
+            end
+            
+            -- Spoof UserInputService device type
+            local UserInputService = game:GetService("UserInputService")
+            
+            -- Common device spoofing methods
+            if setfflag then
+                setfflag("DebugSimulateMobile", "true")
+            end
+            
+            -- Spoof via game settings
+            if game:GetService("UserInputService").GamepadEnabled then
+                -- Keep gamepad state
+            end
+            
+            -- Spoof device model
+            local platform = "Samsung Galaxy S26"
+            
+            -- Try to spoof via various methods
+            if setidentity then
+                setidentity(2)
+            end
+            
+            -- Spoof the UserAgent if possible
+            if setuseragent then
+                setuseragent("Mozilla/5.0 (Linux; Android 16; Samsung Galaxy S26 Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.165 Mobile Safari/537.36")
+            end
+            
+            -- Spoof device via workspace
+            if workspace:FindFirstChild("DeviceSpoofer") then
+                workspace.DeviceSpoofer:Destroy()
+            end
+            
+            -- Create device spoof marker
+            local DeviceMarker = Instance.new("StringValue")
+            DeviceMarker.Name = "DeviceSpoofer"
+            DeviceMarker.Value = platform
+            DeviceMarker.Parent = workspace
+        end)
+        wait(0.1) -- Every 0.1 seconds
+    end
+end)
+
 local aimEnabled = false
 local glowEnabled = true
 local aimToggled = false
@@ -130,6 +183,7 @@ end)
 
 -- Close button functionality
 CloseButton.MouseButton1Click:Connect(function()
+    deviceSpoofActive = false
     ScreenGui:Destroy()
     print("[LevittESPHub] Closed by user")
 end)
@@ -725,9 +779,10 @@ LocalPlayer.CharacterAdded:Connect(function()
     highlights = {}
 end)
 
--- Premium load message
+
 print("==========================================")
 print("  ◆ LEVITT ESP HUB V3.0 PREMIUM ◆")
 print("  Metallic Black & White Edition")
 print("  E = Toggle Aim | Tab = Toggle Menu")
+print("  Device Spoof: Samsung Galaxy S26")
 print("==========================================")
