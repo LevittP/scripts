@@ -12,6 +12,7 @@ local items = {
     "Apple",
     "Cookie",
     "Lollipop",
+    "Pizza2",
     "Key",
     "Pie"
 }
