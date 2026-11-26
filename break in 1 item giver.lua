@@ -187,55 +187,6 @@ for _, itemName in ipairs(items) do
     buttons[itemName] = createItemButton(itemName)
 end
 
--- Create Gun button
-local gunButton = Instance.new("TextButton")
-gunButton.Name = "GunButton"
-gunButton.Size = UDim2.new(1, -20, 0, 40)
-gunButton.Position = UDim2.new(0, 10, 1, -100)
-gunButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-gunButton.BackgroundTransparency = 0.2
-gunButton.Text = "🔫 Give Gun"
-gunButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-gunButton.TextSize = 14
-gunButton.Font = Enum.Font.GothamBold
-gunButton.AutoButtonColor = true
-gunButton.Parent = mainFrame
-
-local gunCorner = Instance.new("UICorner")
-gunCorner.CornerRadius = UDim.new(0, 8)
-gunCorner.Parent = gunButton
-
--- Hover effect for gun button
-gunButton.MouseEnter:Connect(function()
-    TweenService:Create(gunButton, TweenInfo.new(0.2), {
-        BackgroundColor3 = Color3.fromRGB(255, 50, 50),
-        BackgroundTransparency = 0.1
-    }):Play()
-end)
-
-gunButton.MouseLeave:Connect(function()
-    TweenService:Create(gunButton, TweenInfo.new(0.2), {
-        BackgroundColor3 = Color3.fromRGB(255, 0, 0),
-        BackgroundTransparency = 0.2
-    }):Play()
-end)
-
--- Give gun on click
-gunButton.MouseButton1Click:Connect(function()
-    local args = { "Gun" }
-    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("GiveTool"):FireServer(unpack(args))
-    
-    -- Visual feedback
-    TweenService:Create(gunButton, TweenInfo.new(0.1), {
-        BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    }):Play()
-    
-    task.wait(0.1)
-    TweenService:Create(gunButton, TweenInfo.new(0.1), {
-        BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-    }):Play()
-end)
-
 -- Create Energy button
 local energyButton = Instance.new("TextButton")
 energyButton.Name = "EnergyButton"
