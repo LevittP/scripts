@@ -12,7 +12,6 @@ local items = {
     "Apple",
     "Cookie",
     "Lollipop",
-    "Pizza 2",
     "BloxyCola",
     "Key",
     "Pie"
